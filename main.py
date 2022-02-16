@@ -11,17 +11,18 @@ EMAIL_PASSWORD = config['PASSWORD']
 wb = xlrd.open_workbook("./sheet.xlsx")
 sheet = wb.sheet_by_index(0)
 
-body = Template(filename='./thankyou.html')
+body = Template(filename='./anubhuti.html')
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
     for i in range(sheet.nrows):
         msg = EmailMessage()
         reciever = sheet.cell_value(i, 0)
-        msg['Subject'] = "Invitation to Anubhuti '22"
+        msg['Subject'] = "Join Us for Anubhuti'22"
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = reciever
         msg.set_content('This is an email')
-        msg.add_alternative(body.render(name=sheet.cell_value(i, 1)), subtype='html')
+        msg.add_alternative(body.render(
+            name=sheet.cell_value(i, 1)), subtype='html')
         smtp.send_message(msg)
         print("Mail sent to " + reciever)
