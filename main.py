@@ -11,14 +11,15 @@ EMAIL_PASSWORD = config['PASSWORD']
 wb = xlrd.open_workbook("./sheet.xlsx")
 sheet = wb.sheet_by_index(0)
 
-body = Template(filename='./anubhuti.html')
+#If you have images in your template, host your images somewhere (e.g. freeimage.host) and update the src of images in the template prior to automating mailing
+body = Template(filename='./Template/template.html')
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
     for i in range(sheet.nrows):
         msg = EmailMessage()
         reciever = sheet.cell_value(i, 0)
-        msg['Subject'] = "Join Us for Anubhuti'22"
+        msg['Subject'] = "Welcome!"
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = reciever
         msg.set_content('This is an email')
