@@ -14,7 +14,7 @@ PASSWORD="THE APP PASSWORD GMAIL GENERATES FOR YOU GOES HERE"
 
 ### Setting up Gmail ###
 - Open your GMAIL Account.
-- Go to `Manage your google account.`
+- Go to `Manage your google account`.
 - Look for 2 step verification and enable it by following the instructions.
 - After enabling the 2 step verification, again go to `Manage your google account`, right below `2 step verification` you will find `App password`.
 - Click on `App password`, then select `Mail` and `Windows Computer` and proceed.
